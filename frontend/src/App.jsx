@@ -20,7 +20,7 @@ function App() {
     }, [dispatch]);
      
   return( 
-  <div className='flex overflow-hidden h-screen bg-zinc-700'>
+  <div className='flex  h-screen bg-zinc-700'>
   <Routes>
         <Route path='/auth'element={<CheckRoute isAuthenticated={isAuthenticated} user={user}>
           <Authlayout/> 

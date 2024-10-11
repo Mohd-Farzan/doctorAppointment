@@ -51,8 +51,8 @@ const loginUSer= async (req,res)=>{
 }
 const AuthMiddleware = (req, res, next) => {
     
-    // const token = localStorage.getItem('token')
-    const token = req.cookies.token;   
+    const token = localStorage.getItem('token')
+    // const token = req.localStorage('token');   
 
     if (!token) {
         return res.status(401).json({

@@ -6,7 +6,7 @@ function HomeLayout() {
   return  <div className=" flex min-h-screen w-full">
   <div className="flex flex-1 w-full flex-col">
     <Header/>
-    <main className='flex-1 p/4 md:p-6 bg'>
+    <main className=' p-2 md:p-4 w-screen bg-slate-100'>
       <Outlet/>
     </main>
 </div>
