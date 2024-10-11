@@ -50,7 +50,9 @@ const loginUSer= async (req,res)=>{
     }
 }
 const AuthMiddleware = (req, res, next) => {
-    const token = req.cookies.token;
+    
+    // const token = localStorage.getItem('token')
+    const token = req.cookies.token;   
 
     if (!token) {
         return res.status(401).json({
@@ -62,12 +64,12 @@ const AuthMiddleware = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, 'CLIENT_SECRET_KEY');
         req.user = decoded;
-
         // If you want to send a response back with user info:
         res.status(200).json({
             success: true,
             user: decoded
         });
+        next();
         // If this is a middleware that protects routes and doesn't send a response:
         // next(); // uncomment if needed for protected routes
     } catch (error) {

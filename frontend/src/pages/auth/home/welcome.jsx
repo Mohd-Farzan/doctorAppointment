@@ -1,19 +1,25 @@
-import React from 'react'
-
+import React from 'react';
+import logo from '../../../assets/images/logo.jpeg'
 function Welcome() {
   return (
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam labore dignissimos consectetur aperiam debitis iure vitae porro illum temporibus obcaecati eveniet quo non quos nemo, in, placeat, adipisci earum sint.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium fugit velit eveniet doloribus, illum quasi temporibus ullam. Suscipit, aspernatur beatae labore ut nobis impedit excepturi a sed ea quibusdam dolores.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti soluta nam, doloremque asperiores ab quis atque vitae eius! Temporibus atque facilis accusantium fugit velit ullam minus aperiam ratione tempore suscipit.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad reiciendis facilis, culpa tenetur asperiores, sapiente unde nesciunt laborum quia, enim iure. Quos perspiciatis ipsam porro. Fugit nostrum error magni sapiente.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quae tempore repellat earum illum, atque rerum, modi molestiae accusantium autem deleniti adipisci hic obcaecati quam neque dignissimos inventore, itaque quo?
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil labore possimus at debitis accusamus quisquam voluptatum eveniet itaque perspiciatis molestias in nobis sunt totam nemo reiciendis, sequi pariatur vel! Repudiandae!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae iste numquam expedita odio. Dolorem porro labore molestiae ea reprehenderit, molestias, accusamus quod rerum quidem commodi ullam harum, est minima.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ad iure temporibus! Eaque, velit voluptatum rerum ipsam adipisci aspernatur rem eius, eveniet laboriosam, expedita dolores illo alias earum fugiat explicabo!
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid dolores officiis, odio pariatur optio reprehenderit architecto dicta libero. Magnam voluptatem atque nihil nemo possimus architecto ad voluptatum velit culpa ullam!
-        
-    </div>
-  )
+            <div className="flex">
+              <div className="w-2/3 p-4">
+                <h5 className="text-lg font-bold text-white">Book Your Next</h5>
+                <p className="text-blue-600 border-2 border-white rounded font-bold bg-white">
+                  Appointment
+                  <span className="bg-cyan-500 text-white text-lg rounded font-bold ml-5">Online!</span>
+                </p>
+                <p className="text-gray-500 text-sm mt-1">
+                  <small>Book Now And Get 30% OFF</small>
+                </p>
+                <button className="border-2 border-orange-500 text-lg bg-orange-500 rounded text-white font-bold mt-3">BOOK NOW</button>
+              </div>
+              <div className="w-1/4 hidden md:block">
+                <img src={logo} alt="img" /> {/* Add your image source here */}
+              </div>
+            </div>
+          
+  );
 }
 
-export default Welcome
+export default Welcome;

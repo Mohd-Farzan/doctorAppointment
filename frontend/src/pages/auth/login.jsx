@@ -23,7 +23,7 @@ function AuthLogin() {
               alert("successfully logged in")
               setTimeout(() => navigate('../../home/welcome'), 1000);
             } else {
-              alert("failed to signup")
+              alert("failed to login")
               setTimeout(()=>navigate('/auth/signup'),800)
             }
           });
@@ -42,7 +42,7 @@ function AuthLogin() {
     />
     <p>
       Don't have an Account?
-      <Link className="font-medium text-primary hover:underline" to="/auth/login">
+      <Link className="font-medium text-primary hover:underline" to="/auth/signup">
         Signup
       </Link>
     </p>
