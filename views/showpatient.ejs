@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Data</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CDN -->
+</head>
+<%-include('nav.ejs')%>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-semibold text-center mb-6">Patient Data</h1>
+        
+        <table class="min-w-full table-auto bg-white border-collapse shadow-md rounded-lg overflow-hidden">
+            <thead>
+                <tr class="bg-blue-500 text-white ">
+                    <th class="px-4 py-2 text-left">Name</th>
+                    <th class="px-4 py-2 text-left">Email</th>
+                    <th class="px-4 py-2 text-left">Phone No</th>
+                    <th class="px-4 py-2 text-left">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+          
+                <% patient.forEach((i) => { %>
+                    <tr class="border-t hover:bg-gray-50">
+                        <td class="px-4 py-2 border-2"><%= i.Name %></td>
+                        <td class="px-4 py-2 border-2"><%= i.Email %></td>
+                        <td class="px-4 py-2 border-2"><%= i.Phone %></td>
+                        <td class="px-4 py-2 border-2">
+                            <% if (i.Date && !isNaN(new Date(i.Date).getTime())) { %>
+                                <%= new Date(i.Date).toISOString().substring(0, 10) %> <!-- Format the Date -->
+                            <% } else { %>
+                                N/A
+                            <% } %>
+                        </td>
+                    </tr>
+                    
+                    <% }) %>
+                </tbody>
+        </table>
+    </div>
+   
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">User Messages</h1>
+    
+      
+        <% patient.forEach((i) => { %>
+            <div class="bg-white shadow-md rounded-lg overflow-hidden mb-4">
+            
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-xl font-semibold text-gray-800"><%= i.Name %></h2>
+                    <p class="text-sm text-gray-500">Posted on: <span class="font-medium">
+                        <% if (i.Date && !isNaN(new Date(i.Date).getTime())) { %>
+                            <%= new Date(i.Date).toISOString().substring(0, 10) %>
+                        <% } else { %>
+                            N/A
+                        <% } %>
+                    </span></p>
+                </div>
+    
+           
+                <div class="p-6">
+                    <p class="text-lg text-gray-700">
+                        <%= i.Message %>
+                    </p>
+                </div>
+    
+              
+                <div class="px-6 py-3 bg-gray-50 border-t border-gray-200 flex justify-between items-center">
+                    <button class="text-blue-600 hover:underline text-sm">Reply</button>
+                    <button class="text-red-600 hover:underline text-sm">Delete</button>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+
+
+</body>
+</html>

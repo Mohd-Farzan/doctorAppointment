@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+
+    <!-- <form action="/patient/data" method="POST"> -->
+        <!-- <div>
+            <label for="Name">Name:</label>
+            <input type="text" name="Name" id="Name" required>
+        </div>
+        <div>
+            <label for="Email">Email:</label>
+            <input type="email" name="Email" id="Email" required>
+        </div>
+        <div>
+            <label for="Phone">Phone:</label>
+            <input type="tel" name="Phone" id="Phone" pattern="[0-9]{10}" placeholder="1234567890">
+            <small>Enter a 10-digit phone number</small>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div> -->
+
+
+
+
+
+ 
+
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold text-center mb-6 my-2">Book an Appointment</h2>
+        <form action="/patient/data" method="POST">
+
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input type="text" id="name" name="Name" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="email" name="Email" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700">PhoneNo</label>
+                <input type="tel" id="name" name="Phone" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your Mobile no" required>
+            </div>
+            <div class="mb-4">
+                <label for="date" class="block text-sm font-medium text-gray-700">Appointment Date</label>
+                <input type="date" id="date" name="Date" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+
+            <!-- <div class="mb-4">
+                <label for="appointment-type" class="block text-sm font-medium text-gray-700">Appointment Type</label>
+                <select id="appointment-type" name="appointment-type" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="consultation">Consultation</option>
+                    <option value="follow-up">Follow-up</option>
+                    <option value="emergency">Emergency</option>
+                </select>
+            </div> -->
+
+            <div class="mb-4">
+                <label for="message" class="block text-sm font-medium text-gray-700">Message (Optional)</label>
+                <textarea id="message" name="Message" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" placeholder="Enter any additional details or symptoms"></textarea>
+            </div>
+
+            <div class="flex justify-center">
+                <button type="submit" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Book Appointment</button>
+            </div>
+    </div>
+
+
+
+    </form>
+
+</body>
+</html>

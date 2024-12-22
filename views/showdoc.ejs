@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Data</title>
+</head>
+<body>
+
+    <h1>Doctor Data</h1>
+    <table border="2px" class="table" style="width: 60%; margin: auto;">
+        <tr>
+            <th  colspan="2">Name</th>
+            <th  colspan="2">Specialty</th>
+            <th colspan="2" >Availability</th>
+            <th colspan="2" >Email</th>
+            <th colspan="2" >Address</th>
+            <th colspan="2" >Time</th>
+
+
+            <th colspan="2" >Fees</th>
+
+        </tr>
+        <% doctor.forEach((i) => { %>
+            <tr>
+                <td colspan="2"><%= i.Name %></td>
+                <td colspan="2"><%= i.Specialty %></td>
+                <td colspan="2"><%= i.Availability.join(", ") %></td><!-- Join array values if Availability is an array -->
+                <td colspan="2"><%= i.Email %></td>
+                <td colspan="2"><%= i.Address %></td>
+                <td colspan="2"><%= i.Time %></td>
+
+                <td colspan="2"><%= i.Fees %></td>
+
+            </tr>
+        <% }) %>
+    </table>
+
+</body>
+</html>
