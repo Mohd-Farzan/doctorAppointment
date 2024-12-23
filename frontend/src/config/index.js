@@ -58,6 +58,37 @@ export const navbarItems=[
         path:'/home/medicines'
     },
     
-    
+]
+export const forgotpswrd=[
+    {
+        name:'email',
+        label:"Email",
+        placeholder:'enter your registered email',
+        componentType:"input",
+        type:'email',
+    }
+]
+export const profileFormControls=[
+    {
+        name:'email',
+        label:'Email',
+        placeholder:'ENter your email',
+        componentType:'input',
+        type:'email',
+    },
+    {
+        name:'password',
+        label:'Password',
+        placeholder:'ENter your Password',
+        componentType:'input',
+        type:'password',
+    },
+    {
+        name:'userName',
+        label:'user name',
+        placeholder:'ENter your user name',
+        componentType:'input',
+        type:'text',
+    }
     
 ]

@@ -1,8 +1,24 @@
-import React from 'react';
-import logo from '../../../assets/images/logo.jpeg';
-import { BriefcaseMedical, CalendarCheck, GraduationCapIcon, Home, Pill } from 'lucide-react';
+import React, { useEffect } from 'react';
+import logo from '../../../public/images/logo.jpeg'
+import { BriefcaseMedical, CalendarCheck, GraduationCapIcon, Home, LogOut, Pill } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '@/store/auth-slice';
+import { Link, useNavigate} from 'react-router-dom';
+
 
 function Welcome() {
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
+  const {user}=useSelector((state)=>state.auth)
+    function handleLogOut(){
+      dispatch(logoutUser()).unwrap()
+      console.log(logoutUser)
+      alert('logout successfull')
+      navigate('/auth/login');
+    }
+    
+    
   return (
     <>
       <nav className="navbar bg-body-tertiary fixed-top">
@@ -10,7 +26,7 @@ function Welcome() {
           <img className="w-10 h-10 rounded-full object-cover" src={logo} alt="Logo" />
           <h1 className="absolute left-16 top-1 text-orange-300">Welcome</h1>
           <h2 className="absolute left-16 top-5 text-blue-700">
-            <i>Hey, Adil</i>
+            <i>Hey,{user.userName}</i>
           </h2>
 
           <ul className="flex gap-6 items-center justify-center mt-0 bg-transparent">
@@ -39,10 +55,10 @@ function Welcome() {
               </a>
             </li>
             <li>
-              <a href="/user" className="transform-doc bg-transparent">
-                <i className="fa fa-user"></i>
-                <span>Profile</span>
-              </a>
+              <Link className="transform-doc bg-transparent" to='/home/profile'>
+                  profile
+              </Link>
+              
             </li>
           </ul>
 
@@ -65,15 +81,6 @@ function Welcome() {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link" href="/views/home.ejs">
-                    <img className="w-10 h-10 rounded-full object-cover" src={logo} alt="User" />
-                    <h1 className="left-10 top-1 text-orange-300">Welcome</h1>
-                    <h2 className="absolute left-16 text-blue-700">
-                      <i>Hey, Adil</i>
-                    </h2>
-                  </a>
-                </li>
-                <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="./home.ejs">Home</a>
                 </li>
                 <li className="nav-item">
@@ -89,7 +96,14 @@ function Welcome() {
                   <a className="nav-link" href="/chat">Chat</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-gray-500" href="#">Log Out</a>
+                  <form action="" method="post">
+                  <button onClick={handleLogOut}
+                 
+                    type="submit">
+                      <LogOut/>
+                    </button>
+                  </form>
+                  
                 </li>
               </ul>
             </div>
@@ -119,7 +133,7 @@ function Welcome() {
               </div>
             </div>
           </div>
-          <div className="max-w-sm bg-orange-400 shadow-lg rounded-lg overflow-hidden hover:shadow-xl hover:bg-zinc-700 transition-all duration-200 ease-in-out">
+          <div className="max-w-sm bg-orange-400 shadow-lg rounded-lg overflow-hidden hover:shadow-xl hover:bg-zinc-700  transition-all duration-200 ease-in-out">
             <div className="flex">
               <div className="w-2/3 p-4">
                 <h5 className="text-lg font-semibold text-blue-600 mt-1">Find Your Right</h5>

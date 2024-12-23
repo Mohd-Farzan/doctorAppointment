@@ -1,7 +1,8 @@
 const express=require('express');
 const db=require('./config/dbConnect');
 const cors = require('cors')
-const Authrouter = require('./Routes/auht/auth-routes')
+const Authrouter = require('./Routes/auht/auth-routes');
+const cookieParser = require('cookie-parser');
 const app=express()
 db;
 const PORT=process.env.PORT || 3000
@@ -18,6 +19,8 @@ app.use(cors({
     credentials: true, // Allow credentials
 }));
 app.use(express.json());
+app.use(cookieParser());
+
 app.use('/api/auth',Authrouter);
 
 

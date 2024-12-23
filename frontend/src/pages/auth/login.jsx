@@ -10,14 +10,15 @@ const initialState = {
     password: '',
   };
 function AuthLogin() {
-    const[FormData,setFormData]=useState(initialState);
+    const[formData,setFormData]=useState(initialState);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
 
     function onSubmit(event){
         event.preventDefault()
-        dispatch(loginUser(FormData)).then((data) => {
+        console.log(formData, 'FormData before dispatch');
+        dispatch(loginUser(formData)).then((data) => {
             if (data?.payload?.success) {
              
               alert("successfully logged in")
@@ -36,10 +37,13 @@ function AuthLogin() {
     <CommonForm
       formControls={loginFormControls}
       buttonText={'Login'}
-      formData={FormData}
+      formData={formData}
       setFormData={setFormData}
       onSubmit={onSubmit}
     />
+    <span>
+     <Link className='font-medium text-primary hover:underline' to="/auth/forgotPassword">forgot password</Link> 
+    </span>
     <p>
       Don't have an Account?
       <Link className="font-medium text-primary hover:underline" to="/auth/signup">

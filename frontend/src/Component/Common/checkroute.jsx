@@ -1,12 +1,13 @@
 import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, replace, useLocation, useNavigate } from 'react-router-dom';
 
 function CheckRoute({ isAuthenticated, user, children }) {
   const location = useLocation();
+  const navigate=useNavigate
 
   if (!isAuthenticated) {
     // Allow unauthenticated users to access login or signup pages
-    if (location.pathname === '/auth/login' || location.pathname === '/auth/signup') {
+    if (location.pathname === '/auth/login' || location.pathname === '/auth/signup' || location.pathname==='/auth/forgotPassword') {
       return <>{children}</>;
     }
     // Redirect all other unauthenticated users to the login page
@@ -28,6 +29,7 @@ function CheckRoute({ isAuthenticated, user, children }) {
       // Redirect users from admin routes or auth pages to home
       if (location.pathname.includes('/admin') || location.pathname === '/auth/login' || location.pathname === '/auth/signup') {
         return <Navigate to='/home/welcome' replace />;
+        
       }
       // Allow users to access home routes
       if (location.pathname.includes('/home')) {

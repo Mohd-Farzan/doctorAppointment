@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import backgroundImage from '../../assets/images/logo.jpeg';
+import backgroundImage from '../../../public/images/logo.jpeg';
 
 function Authlayout() {
   return (
